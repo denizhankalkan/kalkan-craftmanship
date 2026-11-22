@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kalkan Craftsmanship</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Libre+Caslon+Text:ital@0;1&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* VOICE: quiet, exact, a Savile Row cutter's room in Nişantaşı
+   IDEA: the cutter's order book — chalk lines, swatch cards, a numbered measurement sheet
+   PICTURE: a tweed jacket on a dress form, drawn in chalk over herringbone cloth
+   COLOUR and TYPE: heather charcoal ground, bone paper, moss and a chalk-white line; Libre Caslon + Work Sans
+   LAYOUT: full-bleed dark hero, paper bands, swatch grid, numbered process rail, booking card */
+:root{color-scheme:light dark;
+--paper:light-dark(#f2efe8,#1a1b18);--ink:light-dark(#1f201c,#ebe8df);--mute:light-dark(#66675f,#a9a89e);
+--char:#23251f;--char2:#2e3029;--moss:light-dark(#4b5a3a,#9db083);--line:light-dark(#d9d4c8,#34362f);--chalk:#efeadd;--card:light-dark(#fbfaf6,#22241f)}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.65 "Work Sans",system-ui,sans-serif;overflow-x:clip}
+h1,h2,h3{font-family:"Libre Caslon Display",Georgia,serif;font-weight:400;line-height:1.05;text-wrap:balance;margin:0}
+h1{font-size:clamp(40px,6vw,76px)}h2{font-size:clamp(32px,4vw,50px)}h3{font-size:24px}
+p{margin:0}a{color:inherit}html{overflow-x:clip;scroll-padding-top:76px;scroll-behavior:smooth}
+.wrap{max-width:1240px;margin:0 auto;padding:0 max(5vw,16px)}.band{padding:clamp(56px,7vw,112px) 0}
+.kick{font-size:13px;font-weight:600;letter-spacing:.04em;color:var(--moss);margin-bottom:14px}
+.lead{color:var(--mute);font-size:18px;max-width:36em;margin-top:18px}
+header{position:sticky;top:0;z-index:20;background:var(--char);color:var(--chalk);border-bottom:1px solid #3a3c34}
+.hd{display:flex;align-items:center;justify-content:space-between;gap:20px;height:68px}
+.logo{font-family:"Libre Caslon Display",serif;font-size:26px;text-decoration:none;display:flex;align-items:center;gap:10px}
+.logo svg{width:26px;height:26px}
+nav{display:flex;gap:28px;font-size:15px}nav a{text-decoration:none;opacity:.85}nav a:hover{opacity:1;text-decoration:underline;text-underline-offset:6px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 26px;border-radius:2px;font:500 15px "Work Sans";text-decoration:none;cursor:pointer;border:1.5px solid currentColor;background:transparent;color:inherit}
+.btn.fill{background:var(--chalk);color:var(--char);border-color:var(--chalk)}
+.btn.ink{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+:focus-visible{outline:2px solid var(--moss);outline-offset:3px}
+/* hero */
+.hero{background:var(--char);color:var(--chalk);position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;opacity:.22;background:
+ repeating-linear-gradient(45deg,#6b6a5c 0 3px,transparent 3px 6px),repeating-linear-gradient(-45deg,#4d5040 0 3px,transparent 3px 6px);background-size:12px 24px}
+.hg{position:relative;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:clamp(24px,4vw,64px);align-items:center;min-height:clamp(520px,78vh,760px);padding-block:48px}
+.hero .lead{color:#c9c6b9}.hero .row{display:flex;gap:14px;flex-wrap:wrap;margin-top:34px}
+.form{width:100%;max-width:520px;justify-self:center}
+.chalk{fill:none;stroke:var(--chalk);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.chalk.d{stroke-dasharray:6 7;stroke-width:1.6;opacity:.75}
+.facts{display:flex;gap:32px;flex-wrap:wrap;margin-top:40px;border-top:1px solid #4a4c42;padding-top:22px}
+.facts b{display:block;font-family:"Libre Caslon Display",serif;font-size:34px;font-weight:400}.facts span{font-size:14px;color:#bdbaad}
+/* services */
+.sv{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;margin-top:44px}
+.sc{background:var(--card);border:1px solid var(--line);padding:28px;display:flex;flex-direction:column;gap:12px}
+.sc .sw{height:120px;margin:-28px -28px 8px}
+.sc p{color:var(--mute);font-size:16px}.sc .pr{margin-top:auto;padding-top:12px;border-top:1px solid var(--line);display:flex;justify-content:space-between;font-size:15px}.sc .pr b{font-weight:600;white-space:nowrap}
+/* cloth swatches */
+.hb{background:repeating-linear-gradient(60deg,#5d5444 0 4px,#3e382d 4px 8px),#4a4235;background-blend-mode:multiply}
+.hb{background:linear-gradient(90deg,transparent 49%,rgba(0,0,0,.15) 50%,transparent 51%) 0 0/16px 100%,repeating-linear-gradient(45deg,#6e6350 0 3px,#4a4233 3px 6px)}
+.hd2{background:conic-gradient(#2b2a26 25%,#d9d3c4 0 50%,#2b2a26 0 75%,#d9d3c4 0) 0 0/14px 14px}
+.gc{background:linear-gradient(90deg,rgba(150,40,40,.35) 2px,transparent 2px) 0 0/28px 28px,linear-gradient(rgba(150,40,40,.35) 2px,transparent 2px) 0 0/28px 28px,repeating-linear-gradient(45deg,#7d8470 0 2px,#5f6655 2px 4px)}
+.dn{background:repeating-linear-gradient(0deg,rgba(255,255,255,.08) 0 1px,transparent 1px 3px),repeating-linear-gradient(90deg,#3c4a5e 0 2px,#2f3b4c 2px 4px)}
+.bw{background:repeating-linear-gradient(90deg,#8a6a45 0 2px,#7a5c3b 2px 5px),#7a5c3b}
+.mb{background:repeating-linear-gradient(45deg,#a39a86 0 2px,#8f8673 2px 4px)}
+/* cloth library */
+.lib{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:16px;margin-top:40px}
+.cl{border:0;background:none;padding:0;color:inherit;font:inherit;text-align:start;cursor:pointer}
+.cl i{display:block;aspect-ratio:3/4;border:1px solid var(--line);outline:2px solid transparent;outline-offset:3px;transition:outline-color .2s}
+.cl[aria-pressed=true] i{outline-color:var(--moss)}.cl b{display:block;font-weight:500;margin-top:10px;font-size:15px}.cl small{color:var(--mute);font-size:14px}
+.cloth{margin-top:26px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:28px;align-items:start;background:var(--card);border:1px solid var(--line);padding:24px}
+.cloth i{display:block;aspect-ratio:16/10}.cloth dl{display:grid;grid-template-columns:auto minmax(0,1fr);gap:8px 18px;margin:14px 0 0;font-size:15px}.cloth dt{color:var(--mute)}.cloth dd{margin:0}
+/* process */
+.proc{background:var(--char);color:var(--chalk)}
+.steps{list-style:none;padding:0;margin:44px 0 0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;counter-reset:s}
+.steps li{counter-increment:s;padding:26px 24px 0 0;border-top:1px dashed #6d6c60;position:relative}
+.steps li::before{content:counter(s);position:absolute;top:-17px;left:0;width:32px;height:32px;border-radius:50%;background:var(--chalk);color:var(--char);display:grid;place-items:center;font:600 14px "Work Sans"}
+.steps b{display:block;font-family:"Libre Caslon Display",serif;font-size:24px;font-weight:400;margin:10px 0 6px}.steps p{color:#c5c2b5;font-size:16px}.steps em{font-style:normal;color:#e1dccd;font-size:14px;display:block;margin-top:10px}
+/* details */
+.det{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,5vw,80px);align-items:center}
+.det ul{list-style:none;padding:0;margin:26px 0 0;display:grid;gap:0}.det li{display:grid;grid-template-columns:3.2em minmax(0,1fr);gap:12px;padding:14px 0;border-bottom:1px solid var(--line)}
+.det li span{font-family:"Libre Caslon Display",serif;font-size:22px;color:var(--moss)}.det li p{color:var(--mute);font-size:15px}
+.sheet{background:var(--card);border:1px solid var(--line);padding:26px;font-size:15px}
+.sheet h3{font-size:22px;margin-bottom:12px}.mrow{display:grid;grid-template-columns:minmax(0,1fr) 5em;padding:8px 0;border-bottom:1px dotted var(--line)}.mrow span:last-child{text-align:right;font-variant-numeric:tabular-nums}
+/* prices */
+table{width:100%;border-collapse:collapse;margin-top:34px;font-size:16px}th,td{text-align:start;padding:14px 12px;border-bottom:1px solid var(--line);vertical-align:top}th{font-size:13px;color:var(--mute);font-weight:500}
+td.n{text-align:right;white-space:nowrap;font-weight:600}
+.note{font-size:14px;color:var(--mute);margin-top:16px}
+/* booking */
+.book{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:clamp(32px,5vw,72px);align-items:start}
+form{background:var(--card);border:1px solid var(--line);padding:clamp(20px,3vw,34px);display:grid;gap:16px}
+label{font-size:14px;font-weight:500;display:grid;gap:6px}
+input,select,textarea{font:16px "Work Sans";min-height:48px;padding:10px 14px;border:1px solid var(--line);border-radius:2px;background:var(--paper);color:var(--ink);width:100%}
+textarea{min-height:96px;resize:vertical}.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}.chips button{min-height:44px;padding:0 16px;border-radius:999px;border:1px solid var(--line);background:var(--paper);color:var(--ink);font:15px "Work Sans";cursor:pointer}.chips button[aria-pressed=true]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.faq details{border-bottom:1px solid var(--line)}.faq summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:16px;padding:18px 0;font-weight:500}
+.faq summary::-webkit-details-marker{display:none}.faq summary::after{content:"+";font-size:22px;color:var(--moss)}.faq details[open] summary::after{content:"−"}.faq p{color:var(--mute);padding-bottom:18px;max-width:46em}
+footer{background:var(--char);color:#c9c6b9;font-size:15px;padding:48px 0 28px}
+.fg{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}footer .logo{color:var(--chalk)}
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,160%);background:var(--ink);color:var(--paper);padding:14px 22px;z-index:50;transition:transform .3s,visibility .3s;visibility:hidden;max-width:92vw;text-align:center;font-size:15px}.toast.on{transform:translate(-50%,0);visibility:visible}
+@media(max-width:1000px){nav{display:none}.sv{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.lib{grid-template-columns:repeat(3,minmax(0,1fr))}.steps{grid-template-columns:minmax(0,1fr) minmax(0,1fr);row-gap:44px}}
+@media(max-width:760px){.hg,.det,.book,.cloth{grid-template-columns:minmax(0,1fr)}.hg{padding-block:40px 24px;min-height:0}.form{max-width:340px}.sv{grid-template-columns:minmax(0,1fr)}.steps{grid-template-columns:minmax(0,1fr)}.two{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:600px){table{font-size:14px}th,td{padding:12px 6px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<header><div class="wrap hd">
+  <a class="logo" href="#"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="8" cy="24" r="4"/><circle cx="16" cy="26" r="4"/><path d="M10.5 21 26 4M14 22.5 22 4"/></svg>Kalkan Craftsmanship</a>
+  <nav><a href="#hizmetler">Hizmetler</a><a href="#kumas">Kumaş kütüphanesi</a><a href="#surec">Süreç</a><a href="#fiyat">Fiyatlar</a><a href="#randevu">Randevu</a></nav>
+  <a class="btn" href="#randevu" style="min-height:40px;padding:0 18px">Randevu al</a>
+</div></header>
+
+<section class="hero"><div class="wrap hg">
+  <div>
+    <div class="kick" style="color:#b9c79f">İstanbul · Ismarlama terzilik</div>
+    <h1>Size göre kesilmiş, ömür boyu giyilecek bir tüvit ceket.</h1>
+    <p class="lead">Ölçünüz alınır, kalıbınız elle çizilir, ceketiniz iki provayla sizin bedeninizde şekillenir. Hazır giyimin bıraktığı yerden başlıyoruz: omuz, duruş, yaka ve astar sizin seçiminiz.</p>
+    <div class="row"><a class="btn fill" href="#randevu">Ölçü randevusu al</a><a class="btn" href="#kumas">Kumaşları gör</a></div>
+    <div class="facts"><div><b>30+</b><span>ölçü noktası</span></div><div><b>2</b><span>prova</span></div><div><b>6–8 hafta</b><span>teslim süresi</span></div></div>
+  </div>
+  <svg class="form" viewBox="0 0 400 460" role="img" aria-label="Terzi mankeni üzerinde tebeşirle çizilmiş tüvit ceket">
+    <defs><pattern id="hbp" width="16" height="16" patternUnits="userSpaceOnUse"><path d="M0 16 8 0M8 16 16 0" stroke="#7b7262" stroke-width="3"/><path d="M0 0 8 16M8 0 16 16" stroke="#5a5244" stroke-width="3" transform="translate(0 0)" opacity=".0"/></pattern>
+    <linearGradient id="sh" x1="0" x2="1"><stop offset="0" stop-color="#000" stop-opacity=".28"/><stop offset=".45" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".35"/></linearGradient></defs>
+    <ellipse cx="200" cy="440" rx="120" ry="12" fill="#000" opacity=".3"/>
+    <path d="M200 360v72M168 436h64" class="chalk"/>
+    <path d="M120 96c22-14 50-20 80-20s58 6 80 20l26 36 4 210H90l4-210z" fill="url(#hbp)"/>
+    <path d="M120 96c22-14 50-20 80-20s58 6 80 20l26 36 4 210H90l4-210z" fill="url(#sh)"/>
+    <path d="M168 78 200 210 232 78" fill="#2a2b25"/>
+    <path d="M150 88 200 210l-26-104zM250 88 200 210l26-104z" fill="#6b6253" stroke="#2a2b25" stroke-width="1.5"/>
+    <path d="M200 210v132" stroke="#2a2b25" stroke-width="2"/>
+    <circle cx="206" cy="246" r="5" fill="#2d2a22"/><circle cx="206" cy="282" r="5" fill="#2d2a22"/>
+    <path d="M232 206h40" stroke="#2a2b25" stroke-width="3"/><path d="M128 268h48M228 268h48" stroke="#2a2b25" stroke-width="2.5"/>
+    <path d="M178 40c0-14 10-22 22-22s22 8 22 22v36h-44z" fill="#3a3b33"/>
+    <path d="M120 96c22-14 50-20 80-20s58 6 80 20l26 36 4 210H90l4-210z" class="chalk"/>
+    <path d="M94 132c-14 60-14 130-8 200M306 132c14 60 14 130 8 200" class="chalk d"/>
+    <path d="M60 120h18M60 120v28M330 342h20M350 342v-28" class="chalk"/>
+    <text x="22" y="112" fill="#efeadd" font-family="Libre Caslon Text" font-style="italic" font-size="17">omuz 46</text>
+    <text x="300" y="380" fill="#efeadd" font-family="Libre Caslon Text" font-style="italic" font-size="17">boy 74</text>
+    <path d="M200 150c-30 0-52 10-66 22" class="chalk d"/><text x="88" y="190" fill="#efeadd" font-family="Libre Caslon Text" font-style="italic" font-size="17">göğüs 102</text>
+  </svg>
+</div></section>
+
+<section class="band" id="hizmetler"><div class="wrap">
+  <div class="kick">Hizmetler</div>
+  <h2>Üç iş, tek bir el.</h2>
+  <p class="lead">Sıfırdan ısmarlama ceket ve takım, sevdiğiniz bir ceketin yeniden kesimi ve kendi kumaşınızla dikim.</p>
+  <div class="sv">
+    <article class="sc"><i class="sw hb"></i><h3>Ismarlama tüvit ceket</h3><p>Kalıbınız sıfırdan çizilir. Kumaş, yaka, cep, astar ve düğme sizin seçiminiz; iki provayla tamamlanır.</p><div class="pr"><span>Başlangıç</span><b>45.000 ₺</b></div></article>
+    <article class="sc"><i class="sw dn"></i><h3>Ismarlama takım elbise</h3><p>Ceket, pantolon ve isteğe bağlı yelek. Düğün, iş ya da her gün için; kumaş ağırlığı mevsime göre seçilir.</p><div class="pr"><span>Başlangıç</span><b>65.000 ₺</b></div></article>
+    <article class="sc"><i class="sw bw"></i><h3>Yeniden kesim ve onarım</h3><p>Babanızdan kalan ceket, vintage bir buluntu ya da artık oturmayan bir takım: bedeninize göre yeniden kesilir.</p><div class="pr"><span>Başlangıç</span><b>6.500 ₺</b></div></article>
+  </div>
+  <p class="note">Fiyatlar örnektir; kumaş ve işçiliğe göre randevuda netleşir.</p>
+</div></section>
+
+<section class="band" id="kumas" style="background:var(--card);border-block:1px solid var(--line)"><div class="wrap">
+  <div class="kick">Kumaş kütüphanesi</div>
+  <h2>Elinize alın, ışığa tutun.</h2>
+  <p class="lead">Atölyede yüzlerce top kumaş arasından seçiyorsunuz. Burada birkaç sevdiğimiz var; dokunmak için gelin.</p>
+  <div class="lib" id="lib"></div>
+  <div class="cloth" id="cloth"></div>
+</div></section>
+
+<section class="band proc" id="surec"><div class="wrap">
+  <div class="kick" style="color:#b9c79f">Süreç</div>
+  <h2>İlk kahveden son düğmeye.</h2>
+  <ol class="steps">
+    <li><b>Tanışma ve ölçü</b><p>Nasıl yaşadığınızı, ceketi nerede giyeceğinizi konuşuruz. 30'dan fazla ölçü ve duruş notu alınır.</p><em>1. hafta · 60 dk</em></li>
+    <li><b>Kalıp ve kesim</b><p>Kalıbınız elle kâğıda çizilir, kumaş üzerine tebeşirle aktarılır ve kesilir.</p><em>2.–3. hafta</em></li>
+    <li><b>İki prova</b><p>İlk provada teyelli ceketle omuz ve boy, ikincide yaka, kol ve duruş oturtulur.</p><em>3.–6. hafta · 2 × 45 dk</em></li>
+    <li><b>Teslim</b><p>El işi ilikler, son ütü. Kalıbınız arşivde saklanır; bir sonraki ceket tek provayla biter.</p><em>6.–8. hafta</em></li>
+  </ol>
+</div></section>
+
+<section class="band"><div class="wrap det">
+  <div>
+    <div class="kick">Ayrıntılar</div>
+    <h2>Hazır cekette olmayanlar.</h2>
+    <ul>
+      <li><span>01</span><div><b>Elle dikilmiş ilikler</b><p>Yaka ilikliği ve kol düğmeleri çalışır; her ilik ipek iplikle elde.</p></div></li>
+      <li><span>02</span><div><b>Yarım astarlı gövde</b><p>Tüvit nefes alır, ceket yumuşak düşer; isterseniz tam astar.</p></div></li>
+      <li><span>03</span><div><b>Yaka rulosu</b><p>Yaka katlanmaz, kıvrılır: göğüste doğal bir rulo.</p></div></li>
+      <li><span>04</span><div><b>Ömür boyu bakım</b><p>Yıllık ücretsiz kontrol, ütü ve küçük onarım.</p></div></li>
+    </ul>
+  </div>
+  <div class="sheet" aria-label="Örnek ölçü föyü">
+    <h3>Ölçü föyü · örnek</h3>
+    <div id="sheet"></div>
+    <p class="note">Her müşterinin föyü ve kâğıt kalıbı atölye arşivinde saklanır.</p>
+  </div>
+</div></section>
+
+<section class="band" id="fiyat" style="background:var(--card);border-block:1px solid var(--line)"><div class="wrap">
+  <div class="kick">Fiyatlar</div>
+  <h2>Kumaşa göre değişir, işçilik aynı kalır.</h2>
+  <table><thead><tr><th>Parça</th><th>Ne dahil</th><th style="text-align:right">Başlangıç</th></tr></thead>
+  <tbody id="prices"></tbody></table>
+  <p class="note">Fiyatlar örnektir. Kumaş ayrıca seçilir; kendi kumaşınızı getirebilirsiniz. Kaparo %40, kalanı teslimde.</p>
+</div></section>
+
+<section class="band" id="randevu"><div class="wrap book">
+  <div>
+    <div class="kick">Randevu</div>
+    <h2>Bir kahve içelim, ölçünüzü alalım.</h2>
+    <p class="lead">İlk görüşme ücretsizdir ve bağlayıcı değildir. Kumaşlara dokunur, ne istediğinizi birlikte netleştiririz.</p>
+    <div class="faq" style="margin-top:30px" id="faq"></div>
+  </div>
+  <form id="bf" novalidate>
+    <span style="font-size:14px;font-weight:500">Ne düşünüyorsunuz?</span>
+    <div class="chips" id="what" role="group" aria-label="Hizmet"></div>
+    <div class="two"><label>Adınız<input id="nm" autocomplete="name" required></label><label>Telefon<input id="ph" type="tel" autocomplete="tel" required></label></div>
+    <div class="two"><label>Tercih edilen gün<select id="dy"></select></label><label>Saat<select id="tm"><option>10:00</option><option>12:00</option><option>15:00</option><option>17:30</option></select></label></div>
+    <label>Bir not (isteğe bağlı)<textarea id="nt" placeholder="Örneğin: sonbahar düğünü için kahverengi bir tüvit ceket"></textarea></label>
+    <button class="btn ink" type="submit">Randevu isteği gönder</button>
+    <p class="note" style="margin:0">Randevu sistemi henüz bağlı değil; istek bu sayfada kaydedilmez.</p>
+  </form>
+</div></section>
+
+<footer><div class="wrap fg">
+  <div><div class="logo">Kalkan Craftsmanship</div><p style="margin-top:10px;max-width:30em">Ismarlama tüvit ceket, takım elbise ve yeniden kesim. Yalnızca randevuyla.</p></div>
+  <div><b style="color:var(--chalk)">Atölye</b><p style="margin-top:8px">Nişantaşı, İstanbul (örnek adres)<br>Salı–Cumartesi · 10:00–19:00</p></div>
+</div></footer>
+<div class="toast" id="toast" role="status"></div>
+
+<script>{
+const $=s=>document.querySelector(s);
+const CLOTH=[["hb","Kahverengi balıksırtı","İskoç tüviti · 480 g","Sonbahar–kış","Kahverengi, kum ve yeşil iplikler","Kırsal, sıcak; kadife pantolonla"],
+["hd2","Kazayağı","Yün · 420 g","Dört mevsim","Siyah–kemik","Şehirli, keskin; siyah balıkçı yakayla"],
+["gc","Galler kareli","Yün · 450 g","Sonbahar–kış","Yosun yeşili, kırmızı çizgi","Karakterli; düz lacivert pantolonla"],
+["dn","Lacivert hopsack","Yün · 300 g","İlkbahar–yaz","Gece mavisi","Takım ya da tek ceket; her yerde"],
+["bw","Taba kadife","Pamuk kadife · 400 g","Sonbahar","Taba, toprak","Hafta sonu ceketi; kot pantolonla"],
+["mb","Anadolu yünü","Yerel yün · 440 g","Kış","Kum, yulaf","Yerli dokuma; doğal, boyasız ton"]];
+let sel=0;
+function lib(){$("#lib").innerHTML=CLOTH.map((c,i)=>`<button class="cl" type="button" data-c="${i}" aria-pressed="${i==sel}"><i class="${c[0]}"></i><b>${c[1]}</b><small>${c[2]}</small></button>`).join("");
+ const c=CLOTH[sel];$("#cloth").innerHTML=`<i class="${c[0]}"></i><div><h3>${c[1]}</h3><dl><dt>Kumaş</dt><dd>${c[2]}</dd><dt>Mevsim</dt><dd>${c[3]}</dd><dt>Renk</dt><dd>${c[4]}</dd><dt>Nasıl giyilir</dt><dd>${c[5]}</dd></dl><a class="btn" style="margin-top:18px;min-height:44px" href="#randevu" data-pick="${c[1]}">Bu kumaşla randevu al</a></div>`}
+const SHEET=[["Boy","178 cm"],["Göğüs","102 cm"],["Bel","88 cm"],["Omuz","46 cm"],["Kol boyu","64 cm"],["Ceket boyu","74 cm"],["Sırt genişliği","40 cm"],["Duruş","hafif öne"]];
+$("#sheet").innerHTML=SHEET.map(m=>`<div class="mrow"><span>${m[0]}</span><span>${m[1]}</span></div>`).join("");
+const PR=[["Tüvit ceket","Kalıp, 2 prova, yarım astar, el işi ilikler","45.000 ₺"],["Takım elbise","Ceket + pantolon, 2 prova","65.000 ₺"],["Yelek","Takıma ek","12.000 ₺"],["Pantolon","Tek pantolon, 1 prova","14.000 ₺"],["Yeniden kesim","Ceketin bedene göre yeniden kesimi","6.500 ₺"],["Kendi kumaşınızla","Kumaş hariç işçilik, ceket","32.000 ₺"]];
+$("#prices").innerHTML=PR.map(p=>`<tr><td><b style="font-weight:500">${p[0]}</b></td><td style="color:var(--mute)">${p[1]}</td><td class="n">${p[2]}</td></tr>`).join("");
+const FAQ=[["Ceket ne zaman hazır olur?","Ölçüden teslime 6–8 hafta. Düğün gibi bir tarihiniz varsa en az 10 hafta önce gelin."],["Kalıbım saklanıyor mu?","Evet. Kâğıt kalıbınız ve ölçü föyünüz arşivde durur; sonraki siparişler tek provayla biter."],["Kendi kumaşımı getirebilir miyim?","Evet. Kumaşı birlikte inceleriz; ceket için genellikle 1,8–2 metre yeterli."],["Kadınlar için de dikiyor musunuz?","Evet. Ceket ve takımlarımız her beden ve her duruş için ayrı kalıpla çizilir."]];
+$("#faq").innerHTML=FAQ.map(f=>`<details><summary>${f[0]}</summary><p>${f[1]}</p></details>`).join("");
+const WHAT=["Tüvit ceket","Takım elbise","Yeniden kesim","Henüz emin değilim"];let w=0;
+const what=()=>$("#what").innerHTML=WHAT.map((x,i)=>`<button type="button" data-w="${i}" aria-pressed="${i==w}">${x}</button>`).join("");what();
+const d=new Date();let o="";for(let i=1,n=0;n<10;i++){const x=new Date(d);x.setDate(d.getDate()+i);if(x.getDay()==0||x.getDay()==1)continue;n++;o+=`<option>${x.toLocaleDateString("tr-TR",{weekday:"long",day:"numeric",month:"long"})}</option>`}$("#dy").innerHTML=o;
+let tt;const toast=m=>{const t=$("#toast");t.textContent=m;t.classList.add("on");clearTimeout(tt);tt=setTimeout(()=>t.classList.remove("on"),3000)};
+document.addEventListener("click",e=>{const b=e.target.closest("[data-c],[data-w],[data-pick]");if(!b)return;
+ if(b.dataset.c){sel=+b.dataset.c;lib()}else if(b.dataset.w){w=+b.dataset.w;what()}else if(b.dataset.pick){$("#nt").value=b.dataset.pick+" kumaşıyla bir ceket düşünüyorum."}});
+$("#bf").onsubmit=e=>{e.preventDefault();if(!$("#nm").value.trim()||!$("#ph").value.trim()){toast("Lütfen adınızı ve telefonunuzu yazın.");return}toast(`Teşekkürler ${$("#nm").value.trim()}. ${$("#dy").value}, ${$("#tm").value} için isteğiniz alındı (örnek).`);e.target.reset();w=0;what()};
+lib();
+}</script>
+</body>
+</html>
